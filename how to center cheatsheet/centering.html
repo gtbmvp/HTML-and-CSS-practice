@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Way to center</title>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      h2 {
+        margin-bottom: 0;
+      }
+
+      .container {
+        max-width: 670px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      table {
+        margin: 0 auto;
+      }
+      th:nth-child(2) {
+        text-align: center;
+      }
+      td:nth-child(2) {
+        text-align: center;
+      }
+      .parent {
+        width: 100%;
+        height: 80px;
+        border: 1px solid black;
+      }
+      .parent2 {
+        position: relative;
+      }
+      .parent3 {
+        line-height: 80px;
+      }
+      .parent4 {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      .parent5 {
+        display: flex;
+        align-items: center;
+      }
+      .parent6 {
+        display: grid;
+        align-items: center;
+      }
+      .child {
+        width: 100px;
+        height: 10px;
+        border: 1px solid red;
+      }
+      .child2 {
+        position: absolute;
+        top: 50%;
+        margin-top: -5px;
+      }
+      .child3 {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+      }
+      .child4 {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+      }
+      .child5 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .before {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Horizontal Start -->
+      <ol>
+        <li>
+          <!-- inline -->
+          <h2>Horizontal inline</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>text-align: center</td>
+            </tr>
+          </table>
+          <div class="parent" style="text-align: center">
+            <span>text</span>
+          </div>
+        </li>
+        <li>
+          <!-- block -->
+          <h2>Horizontal block</h2>
+          <em>*child width required</em>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>margin: 0 auto; required width</td>
+            </tr>
+          </table>
+          <div class="parent">
+            <div class="child" style="margin: 0 auto"></div>
+          </div>
+        </li>
+        <li>
+          <!-- for modern browsers -->
+          <h2>Horizontal for modern browsers</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>display: flex; justify-content: center</td>
+            </tr>
+          </table>
+          <div class="parent" style="display: flex; justify-content: center">
+            <div class="child"></div>
+          </div>
+        </li>
+        <li>
+          <!-- for modern browsers -->
+          <h2>Horizontal for modern browsers 2</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>display: grid; justify-items: center</td>
+            </tr>
+          </table>
+          <div class="parent" style="display: grid; justify-items: center">
+            <div class="child"></div>
+          </div>
+        </li>
+      </ol>
+      <!-- Horizontal End -->
+
+      <!-- Vertical Start -->
+      <ol>
+        <li>
+          <!-- if we know height of the child, but not its parent -->
+          <h2>Vertical with known child height</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>position: relative</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>
+                position: absolute; top: 50%; margin-top: -1/2 element height
+              </td>
+            </tr>
+          </table>
+          <div class="parent parent2">
+            <div class="child child2"></div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know height of the child, but not its parent -->
+          <h2>Vertical with known child height 2</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>position: relative</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>position: absolute; margin: auto; top: 0; bottom: 0;</td>
+            </tr>
+          </table>
+          <div class="parent parent2">
+            <div class="child child3"></div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know height of the parent, but not child -->
+          <h2>Vertical with known parent height (only one line)</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>line-height=parent height</td>
+            </tr>
+          </table>
+          <div class="parent parent3">
+            <span>one text line</span>
+          </div>
+        </li>
+        <li>
+          <!-- if we know height of the parent, but not child -->
+          <h2>Vertical with known parent height</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>line-height=parent height</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>display: inline-block; line-height: normal</td>
+            </tr>
+          </table>
+          <div class="parent parent3">
+            <div class="child4" style="border: 1px solid red">
+              test<br />test
+            </div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know neither height of the parent, nor of the child -->
+          <h2>Vertical with unknown parent and child heights</h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>position: relative</td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>position: absolute; top: 50%; transform: translateY(-50%)</td>
+            </tr>
+          </table>
+          <div class="parent parent2">
+            <div class="child child5"></div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know neither height of the parent, nor of the child -->
+          <h2>Vertical with unknown parent and child heights 2</h2>
+          <em
+            >*parent width in <b>%</b> doesn't work, specify it in px OR<br />
+            wrap everything in div with display: table; width: required
+            <b>%</b></em
+          >
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>display: table-cell; vertical-align: middle</td>
+            </tr>
+          </table>
+          <div class="parent parent4">
+            <div class="child"></div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know neither height of the parent, nor of the child -->
+          <h2>
+            Vertical with unknown parent and child heights (for inline child)
+          </h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>position: relative</td>
+            </tr>
+            <tr>
+              <td>.before</td>
+              <td>
+                display: inline-block; vertical-align: middle; height: 100%
+              </td>
+            </tr>
+            <tr>
+              <td>Child</td>
+              <td>
+                display: inline-block; vertical-align: middle; margin-left: -4px
+              </td>
+            </tr>
+          </table>
+          <div class="parent">
+            <div class="before"></div>
+            <div
+              class="child4"
+              style="border: 1px solid red; margin-left: -4px"
+            >
+              Центрированный<br />Элемент
+            </div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know neither height of the parent, nor of the child -->
+          <h2>
+            Vertical with unknown parent and child heights (for modern browsers)
+          </h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>display: flex; align-items: center</td>
+            </tr>
+          </table>
+          <div class="parent parent5">
+            <div class="child"></div>
+          </div>
+        </li>
+        <li>
+          <!-- if we know neither height of the parent, nor of the child -->
+          <h2>
+            Vertical with unknown parent and child heights (for modern browsers)
+            2
+          </h2>
+          <table>
+            <tr>
+              <th>Element</th>
+              <th>Styles</th>
+            </tr>
+            <tr>
+              <td>Parent</td>
+              <td>display: grid; align-items: center</td>
+            </tr>
+          </table>
+          <div class="parent parent6">
+            <div class="child"></div>
+          </div>
+        </li>
+      </ol>
+      <!-- Vertical End -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+h1 {
+  font: 24px "Arial, Sans-serif";
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.burger {
+  width: 200px;
+  height: 150px;
+  cursor: pointer;
+  background: url("../img/burger.svg") no-repeat center center;
+  background-size: contain;
+  transition: all 0.5s ease;
+}
+.burger--active {
+  background: url("../img/close.svg") no-repeat center center;
+  background-size: contain;
+}

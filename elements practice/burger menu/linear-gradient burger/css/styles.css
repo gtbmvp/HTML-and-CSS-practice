@@ -1,0 +1,59 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+h1 {
+  font: 24px "Arial, Sans-serif";
+  margin: 40px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.burger {
+  width: 200px;
+  height: 150px;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    #000 20%,
+    transparent 20%,
+    transparent 40%,
+    #000 40%,
+    #000 60%,
+    transparent 60%,
+    transparent 80%,
+    #000 80%,
+    #000 100%
+  );
+}
+/* к сожалению не работает transition */
+.burger--active {
+  background: linear-gradient(
+      45deg,
+      transparent 45%,
+      black 45%,
+      black 55%,
+      transparent 55%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 45%,
+      black 45%,
+      black 55%,
+      transparent 55%
+    );
+}

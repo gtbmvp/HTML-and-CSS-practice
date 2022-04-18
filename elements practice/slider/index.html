@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS carousel with wide hidden container</title>
+    <style>
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 1px solid lightcoral;
+      }
+      .slider {
+        width: 3000px;
+        transition: all 0.5s ease;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      input {
+        display: none;
+      }
+      label {
+        display: inline-block;
+        padding: 10px;
+        background-color: lightsalmon;
+        border-radius: 50%;
+        font-size: 0;
+        border: 1px solid transparent;
+      }
+      label:hover {
+        background-color: orange;
+        border: 1px solid black;
+      }
+      #decor_1:checked ~ .slider {
+        transform: translateX(0px);
+      }
+
+      #decor_2:checked ~ .slider {
+        transform: translateX(-480px);
+      }
+      #decor_3:checked ~ .slider {
+        transform: translateX(-960px);
+      }
+      #decor_4:checked ~ .slider {
+        transform: translateX(-1440px);
+      }
+      #decor_5:checked ~ .slider {
+        transform: translateX(-1920px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls">
+        <input type="radio" name="decor" id="decor_1" />
+        <input type="radio" name="decor" id="decor_2" />
+        <input type="radio" name="decor" id="decor_3" />
+        <input type="radio" name="decor" id="decor_4" />
+        <input type="radio" name="decor" id="decor_5" />
+
+        <label for="decor_1">1</label>
+        <label for="decor_2">2</label>
+        <label for="decor_3">3</label>
+        <label for="decor_4">4</label>
+        <label for="decor_5">5</label>
+
+        <div class="slider">
+          <img src="./img/youtube_decor_1.png" alt="" class="slider__img" />
+          <img src="./img/youtube_decor_2.png" alt="" class="slider__img" />
+          <img src="./img/youtube_decor_3.png" alt="" class="slider__img" />
+          <img src="./img/youtube_decor_4.png" alt="" class="slider__img" />
+          <img src="./img/youtube_decor_5.png" alt="" class="slider__img" />
+          <img src="./img/youtube_decor_6.png" alt="" class="slider__img" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
