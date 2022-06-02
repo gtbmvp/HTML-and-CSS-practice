@@ -18,7 +18,7 @@ horizontal and vertical centering of inline/block elements;
   - rem font sizing and percentage line-height;
   - explicit width and height of images in html;
   - visually-hidden css pattern for h1;
-  - no "handing" margins (element + element or :not(:last-child) usage);
+  - no "hanging" margins (element + element or :not(:last-child) usage);
   - adaptive property mixin (change property value between its layout value and minimum value it should be at 320px media breakpoint, depending on current viewport vw);
   - managing margins to prevent content "jumping", when scrollbar appears/disappers;
   - rebuilding section depending on breakpoint;
