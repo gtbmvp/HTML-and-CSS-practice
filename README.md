@@ -11,9 +11,9 @@ horizontal and vertical centering of inline/block elements;
 
 **layouts** folder:
 
-- japan travel - one of the first layouts i made;
-- seafood - first layout i made using my gulp config;
-- watch shop - layout with best practices i know, for example:
+- [japan travel](https://wiry-knife.surge.sh/) - one of the first layouts i made;
+- [seafood](https://hapless-cow.surge.sh/) - first layout i made using my gulp config;
+- [watch shop](https://jolly-giants.surge.sh/) - layout with best practices i know, for example:
   - bem naming;
   - rem font sizing and percentage line-height;
   - explicit width and height of images in html;
